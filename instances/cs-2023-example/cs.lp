@@ -158,7 +158,7 @@ semester_load(I, summer_min, summer_max)   :- season(I, summer).
 sum(s(I), c, bw, (0, U)) :- semester_load(I, _, U).
 
 % ==========================================
-% 4. Group Credit Bounds (l and u)
+% Group Credit Bounds (l and u)
 % ==========================================
 map(l, a1_group, 30).           map(u, a1_group, 30).
 map(l, a2_group, 11).           map(u, a2_group, 11).
