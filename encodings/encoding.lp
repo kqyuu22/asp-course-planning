@@ -1,5 +1,6 @@
 % generate
-{ in(E,s(I)) } :- in(E,m), I=1..n.
+% { in(E,s(I)) } :- in(E,m), I=1..n.
+{ in(E,s(I)) } :- in(E,m), I=t+1..n. % Starting t+1 instead of 1
 
 % s = s(1) U ... U s(n)
 in(E,s) :- in(E,s(I)).
@@ -28,7 +29,7 @@ in(E1,before(A)) :- set(before(A)), in(E1,s(I)), in(E2,A), in(E2,s(J)), I < J.
 :- equal(A,B), not in(E,A), in(E,B).
 %
 :- card(A,leq,U), not { in(E,A) } U.
+:- card(A,geq,L), not L { in(E,A) }.
 %
 :- sum(A,F,bw,(L,U)), not L #sum{ V,E : in(E,A), map(F,E,V) } U.
 :- sum(A,F,geq,   L), not L #sum{ V,E : in(E,A), map(F,E,V) }.
-
